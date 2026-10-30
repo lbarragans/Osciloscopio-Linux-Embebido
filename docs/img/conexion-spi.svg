@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="r" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#333"/></marker>
+  </defs>
+  <rect width="900" height="560" fill="#ffffff"/>
+  <text x="450" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#111">Conexión SPI: BeaglePlay (maestro) ↔ ESP32-C6 (esclavo)</text>
+
+  <rect x="40" y="65" width="270" height="440" rx="12" fill="#e8f1fb" stroke="#1f5fa8" stroke-width="2.5"/>
+  <text x="175" y="95" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f5fa8">BeaglePlay</text>
+  <text x="175" y="115" text-anchor="middle" font-size="13" fill="#1f5fa8">socket mikroBUS (SPI maestro)</text>
+
+  <rect x="590" y="65" width="270" height="440" rx="12" fill="#fdf0e3" stroke="#c4600a" stroke-width="2.5"/>
+  <text x="725" y="95" text-anchor="middle" font-size="17" font-weight="bold" fill="#c4600a">ESP32-C6-DevKitC-1</text>
+  <text x="725" y="115" text-anchor="middle" font-size="13" fill="#c4600a">SPI2 esclavo, USB propio</text>
+
+  <text x="60" y="160" font-size="15" font-weight="bold">CS</text><text x="150" y="160" font-size="13" fill="#555">pin 3</text>
+  <line x1="310" y1="156" x2="590" y2="156" stroke="#333" stroke-width="3" marker-end="url(#r)"/>
+  <text x="450" y="148" text-anchor="middle" font-size="12" fill="#555">Chip Select</text>
+  <text x="610" y="160" font-size="15" font-weight="bold">GPIO10</text>
+
+  <text x="60" y="220" font-size="15" font-weight="bold">SCK</text><text x="150" y="220" font-size="13" fill="#555">pin 4</text>
+  <line x1="310" y1="216" x2="590" y2="216" stroke="#d62828" stroke-width="3" marker-end="url(#r)"/>
+  <text x="450" y="208" text-anchor="middle" font-size="12" fill="#555">Reloj</text>
+  <text x="610" y="220" font-size="15" font-weight="bold">GPIO6</text>
+
+  <text x="60" y="280" font-size="15" font-weight="bold">MOSI</text><text x="150" y="280" font-size="13" fill="#555">pin 6</text>
+  <line x1="310" y1="276" x2="590" y2="276" stroke="#2a9d8f" stroke-width="3" marker-end="url(#r)"/>
+  <text x="450" y="268" text-anchor="middle" font-size="12" fill="#555">Comandos (SBC → uC)</text>
+  <text x="610" y="280" font-size="15" font-weight="bold">GPIO7</text>
+
+  <text x="60" y="340" font-size="15" font-weight="bold">MISO</text><text x="150" y="340" font-size="13" fill="#555">pin 5</text>
+  <line x1="590" y1="336" x2="310" y2="336" stroke="#7b2cbf" stroke-width="3" marker-end="url(#r)"/>
+  <text x="450" y="328" text-anchor="middle" font-size="12" fill="#555">Datos (uC → SBC)</text>
+  <text x="610" y="340" font-size="15" font-weight="bold">GPIO2</text>
+
+  <text x="60" y="400" font-size="15" font-weight="bold">INT</text><text x="150" y="400" font-size="13" fill="#555">pin 15</text>
+  <line x1="590" y1="396" x2="310" y2="396" stroke="#e08a00" stroke-width="3" stroke-dasharray="9,5" marker-end="url(#r)"/>
+  <text x="450" y="388" text-anchor="middle" font-size="12" fill="#555">Handshake (opcional)</text>
+  <text x="610" y="400" font-size="15" font-weight="bold">GPIO3</text>
+
+  <text x="60" y="460" font-size="15" font-weight="bold">RST</text><text x="150" y="460" font-size="13" fill="#555">pin 2</text>
+  <line x1="310" y1="456" x2="590" y2="456" stroke="#888" stroke-width="3" stroke-dasharray="9,5" marker-end="url(#r)"/>
+  <text x="450" y="448" text-anchor="middle" font-size="12" fill="#555">Reset (opcional)</text>
+  <text x="610" y="460" font-size="15" font-weight="bold">EN</text>
+
+  <text x="60" y="495" font-size="15" font-weight="bold">GND</text><text x="150" y="495" font-size="13" fill="#555">pin 8 o 9</text>
+  <line x1="310" y1="491" x2="590" y2="491" stroke="#111" stroke-width="4"/>
+  <text x="450" y="483" text-anchor="middle" font-size="12" fill="#555">Tierra común</text>
+  <text x="610" y="495" font-size="15" font-weight="bold">GND</text>
+
+  <rect x="40" y="518" width="820" height="30" rx="6" fill="#fff3cd" stroke="#e0a800"/>
+  <text x="450" y="538" text-anchor="middle" font-size="13" fill="#7a5b00">⚠ NO conectar +3,3 V (pin 7) ni +5 V (pin 10): cada placa se alimenta por su propio USB. Todo es 3,3 V.</text>
+</svg>

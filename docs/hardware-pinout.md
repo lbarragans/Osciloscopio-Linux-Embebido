@@ -2,6 +2,10 @@
 
 Conexión entre el puerto **mikroBUS de la BeaglePlay** (SPI maestro) y la **ESP32-C6-DevKitC-1** (SPI esclavo).
 
+## Diagrama de conexión
+
+![Conexión SPI entre la BeaglePlay y la ESP32-C6](img/conexion-spi.svg)
+
 ## Tabla de conexiones
 
 | Señal | mikroBUS (pin) | BeaglePlay | ESP32-C6-DevKitC-1 | Dirección |
@@ -10,16 +14,32 @@ Conexión entre el puerto **mikroBUS de la BeaglePlay** (SPI maestro) y la **ESP
 | MISO | 5 | SPI POCI | **GPIO2** (FSPIQ) | uC → SBC |
 | MOSI | 6 | SPI PICO | **GPIO7** (FSPID) | SBC → uC |
 | CS | 3 | SPI CS | **GPIO10** | SBC → uC |
-| INT (handshake) | 11 | GPIO de entrada | **GPIO3** | uC → SBC |
+| INT (handshake) | 15 | GPIO de entrada | **GPIO3** | uC → SBC |
 | RST (opcional) | 2 | GPIO de salida | **EN** (reset) | SBC → uC |
-| GND | 8 (o 16) | GND | **GND** | común |
-| 3,3 V (mikroBUS pin 7) | 7 | 3,3 V | **no conectar** | — |
+| GND | 8 (izq.) o 9 (der.) | GND | **GND** | común |
+| +3,3 V | 7 | 3,3 V | **no conectar** | — |
+| +5 V | 10 | 5 V | **no conectar** | — |
 
-Pines mikroBUS según el estándar (vista del conector): fila izquierda 1–8 = AN, RST, CS, SCK, MISO, MOSI, 3,3V, GND; fila derecha 9–16 = PWM, INT, RX, TX, SCL, SDA, 5V, GND.
+**Numeración de pines mikroBUS usada en este proyecto.** La especificación de MikroElektronika solo define el orden y los nombres de la serigrafía, no numera los pines; el "1" es la marca del pin AN. Aquí se numera como un conector en U, de 1 a 16 (vista superior, con el logo mikroBUS arriba):
 
-> Todas las señales son de **3,3 V**. No conectar el pin 5V del mikroBUS a ningún GPIO. La ESP32-C6 se alimenta por su puerto USB; solo se comparte GND con la BeaglePlay.
+| Fila izquierda | Pin | | Fila derecha | Pin |
+|---|---|---|---|---|
+| AN | 1 | | PWM | **16** |
+| RST | 2 | | **INT** | **15** |
+| CS | 3 | | RX | 14 |
+| SCK | 4 | | TX | 13 |
+| MISO | 5 | | SCL | 12 |
+| MOSI | 6 | | SDA | 11 |
+| +3,3 V | 7 | | +5 V | 10 |
+| GND | 8 | | GND | 9 |
+
+La izquierda baja de 1 a 8 y la derecha sube de 9 (GND) a 16 (PWM). **Ante cualquier duda, guíese por el nombre de la serigrafía (CS, SCK, MISO, MOSI, INT, GND), no por el número.**
+
+> Todas las señales son de **3,3 V**. No conectar el pin +5V (10) del mikroBUS a ningún GPIO. La ESP32-C6 se alimenta por su puerto USB; solo se comparte GND con la BeaglePlay.
 
 ## Entradas analógicas (ADC1)
+
+![Conexión del generador de señales a la ESP32-C6](img/conexion-analogica.svg)
 
 | Canal | Pin ESP32-C6 | Uso |
 |---|---|---|

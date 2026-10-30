@@ -56,11 +56,11 @@ Datos generales de la placa (conocidos): SoC TI **AM625** (Cortex-A53), Linux (i
 | SCK | 4 | GPIO6 |
 | MISO | 5 | GPIO2 |
 | MOSI | 6 | GPIO7 |
-| INT (handshake) | 11 | GPIO3 |
+| INT (handshake) | 15 | GPIO3 |
 | RST (opcional) | 2 | EN |
-| GND | 8 ó 16 | GND |
+| GND | 8 ó 9 | GND |
 
-⚠️ Numeración tomada del estándar mikroBUS; **verifíquenla contra la serigrafía/esquemático de la BeaglePlay** antes de conectar. Fuentes: documentación y esquemático en <https://docs.beagleboard.org/boards/beagleplay/>.
+Numeración en U (izquierda 1–8 hacia abajo, derecha 9–16 hacia arriba; ver tabla completa en [hardware-pinout.md](hardware-pinout.md)). La especificación mikroBUS no numera los pines, así que **guíense por el nombre de la serigrafía** y verifíquenlo contra el esquemático de la BeaglePlay antes de conectar. Fuentes: documentación y esquemático en <https://docs.beagleboard.org/boards/beagleplay/>.
 
 ### Habilitar `/dev/spidev` ⚠️
 
